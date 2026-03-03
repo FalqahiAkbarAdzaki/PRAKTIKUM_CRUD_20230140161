@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
 
         userRepository.save(saveUser);
 
-        UserDto userDto = UserDto = UserMapper.MAPPER.toUserDtoData(saveUser);
+        UserDto userDto = UserMapper.MAPPER.toUserDtoData(saveUser);
 
         return userDto;
     }
@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserDto> getAllUser() {
         List<User> users = userRepository.findAll();
-        List<UserDto> UserDto = new ArrayList<>();
+        List<UserDto> userDto = new ArrayList<>();
         for (User user : users) {
             userDto.add(UserMapper.MAPPER.toUserDtoData(user));
         }
@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public  UserDto getUserById(String id){
+    public  UserDto getUserbyId(String id){
         User user = userRepository.findById(id).orElseThrow(() ->  new RuntimeException("User Not Found"));
        return UserMapper.MAPPER.toUserDtoData(user);
     }
@@ -68,7 +68,7 @@ public class UserServiceImpl implements UserService {
                 .age(request.getAge())
                 .build();
 
-        userRepository.save(User);
+        userRepository.save(user);
 
         return UserMapper.MAPPER.toUserDtoData(user);
     }
